@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     public float speed= 4f;
 
     Animator anim;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,19 +19,24 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 mov= new Vector3(
+            Vector3 mov= new Vector3(
             Input.GetAxisRaw("Horizontal"),
             Input.GetAxisRaw("Vertical"),
             0
         );
-
+        
         transform.position = Vector3.MoveTowards(
             transform.position,
             transform.position + mov,
             speed * Time.deltaTime
         );
-
+        
         anim.SetFloat("MovX",mov.x);
         anim.SetFloat("MovY",mov.y);
+
+      
     }
+
+ 
+
 }
